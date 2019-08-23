@@ -4,12 +4,12 @@ var clearButton = document.getElementById('clear-button');
 var eightBall = document.getElementById('eight-ball-img');
 var questionReveal = document.getElementById('question-reveal');
 var answerReveal = document.getElementById('answer-reveal');
+var clearButton = document.getElementById('clear-button');
+var form = document.getElementById('magic-form');
 
 function clickGetAnswer() {
-  removeEightBall();
-  addAnswer(questionReveal, questionInput);
-  addRandomAnswer();
-}
+  enableAnswerButton();
+};
 
 answerButton.addEventListener('click', clickGetAnswer);
 questionInput.addEventListener('click', clearInput);
@@ -17,25 +17,25 @@ questionInput.addEventListener('click', clearInput);
 function removeEightBall() {
   eightBall.classList.remove('magic-eight-img');
   eightBall.classList.add('magic-eight-img-hidden');
-}
+};
 
 function addAnswer(text, input) {
-  text.classList.remove('question-hidden');
-  text.classList.add('question-reveal');
-  text.innerText = input.value;
-}
-
-function clearInput() {
-  if (questionInput.value === "Ask your questions here!") {
-    questionInput.value = "";
-  }
-}
+  questionReveal.classList.remove('question-hidden');
+  questionReveal.classList.add('question-reveal');
+  questionReveal.innerText = questionInput.value;
+};
 
 function addRandomAnswer() {
   answerReveal.classList.remove('question-hidden');
   answerReveal.classList.add('question-reveal');
   answerReveal.innerText = answers[randomNum];
-}
+};
+
+function clearInput() {
+  if (questionInput.value === "Ask your questions here!") {
+    questionInput.value = "";
+  }
+};
 
 var randomNum = Math.ceil(Math.random() * 20);
 var answers = [
@@ -61,17 +61,32 @@ var answers = [
   "Very doubtful."
 ]
 
+function enableClearButton() {
+  clearButton.disabled = false;
+  clearButton.classList.remove('clear-button-style');
+  clearButton.classList.add('clear-button-style-enabled');
+};
 
+function clearContentButton() {
+  clearContent();
+};
 
+clearButton.addEventListener('click', clearContentButton);
 
+  function clearContent() {
+    answerReveal.classList.add('question-hidden');
+    answerReveal.classList.remove('question-reveal');
+    questionReveal.classList.add('question-hidden');
+    questionReveal.classList.remove('question-reveal');
+    eightBall.classList.add('magic-eight-img');
+    eightBall.classList.remove('magic-eight-img-hidden');
+  }
 
-
-
-
-// function addText(text) {
-//   var newPar = document.createElement('p');
-//   var inputQuestion = document.createTextNode(text);
-//   newPar.appendChild(inputQuestion);
-//
-//   document.body.section.insertBefore(newPar, eightBall);
-// }
+function enableAnswerButton() {
+  if (questionInput.value.length > 0) {
+    removeEightBall();
+    addAnswer();
+    addRandomAnswer();
+    enableClearButton();
+  }
+}

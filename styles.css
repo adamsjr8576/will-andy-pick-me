@@ -64,7 +64,8 @@ background-color: #1C3455;
   height: 0;
   width: 300px;
   overflow: hidden;
-  margin: auto;
+  transition: all 3s ease-in;
+  margin: 20px auto 0 auto;
 }
 
 .question-reveal {
@@ -81,6 +82,7 @@ background-color: #1C3455;
   height: 125px;
   width: 125px;
   margin: auto 0 auto 0;
+  transition: all 2s ease;
 }
 
 .magic-eight-img-hidden {
@@ -97,6 +99,16 @@ background-color: #1C3455;
   align-self: flex-end;
   border: 0;
   background-color: #D0CDCD;
+  color: white;
+}
+
+.clear-button-style-enabled {
+  width: 50px;
+  height: 25px;
+  margin: 0 10px 10px 0;
+  align-self: flex-end;
+  border: 0;
+  background-color: #DE4841;
   color: white;
 }
 
