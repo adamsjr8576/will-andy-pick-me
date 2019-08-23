@@ -48,17 +48,46 @@ section {
 .get-answer-button-style {
   width: 94%;
   padding: 10px;
-  margin: 5px 0 5px 0;
+  margin: 5px 0 30px 0;
   border: 0;
   font-size: 125%;
   background-color: #2B4E80;
   color: white;
 }
 
+.get-answer-button-style:hover {
+background-color: #1C3455;
+}
+
+.question-hidden {
+  text-align: center;
+  height: 0;
+  width: 300px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.question-reveal {
+  text-align: center;
+  width: 300px;
+  height: 30px;
+  font-size: 125%;
+  transition: all 4s ease-in;
+  margin: 20px auto 0 auto;
+}
+
+
 .magic-eight-img {
   height: 125px;
   width: 125px;
   margin: auto 0 auto 0;
+}
+
+.magic-eight-img-hidden {
+    height: 0;
+    width: 0;
+    margin: auto 0 auto 0;
+    transition: all 2s ease;
 }
 
 .clear-button-style {
